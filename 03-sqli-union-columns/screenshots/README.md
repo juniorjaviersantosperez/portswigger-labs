@@ -1,36 +1,50 @@
-# SQL Injection - Determining Number of Columns
+# SQL Injection - UNION Attacks
 
-📌 Platform
+## 📌 Platform
 PortSwigger Web Security Academy
 
-🎯 Objective
-Determine the number of columns returned by the original SQL query using a UNION-based SQL injection.
+## 📚 Labs Completed
 
-🧠 Vulnerability
-SQL Injection in the URL parameter (category), allowing manipulation of the SQL query.
+### 01 - SQL injection UNION attack, determining the number of columns returned by the query
+- Identified the number of columns using UNION SELECT NULL
 
-💥 Payload
-' UNION SELECT NULL,NULL,NULL--
+### 02 - SQL injection UNION attack, finding a column containing text
+- Determined which column supports text data
 
-🛠️ Exploitation Steps
-Accessed a product category
-Identified the category parameter in the URL
-Tested SQL injection using a single quote (')
-Injected UNION SELECT with increasing NULL values
-Observed application responses to detect errors
-Identified the correct number of columns when the page loaded successfully
+### 03 - SQL injection UNION attack, retrieving data from other tables
+- Extracted usernames and passwords from the users table
 
-🧠 Explanation
-The UNION SELECT statement requires the same number of columns as the original query.
-By incrementing the number of NULL values, it was possible to determine the correct column count when the query executed without errors.
+### 04 - SQL injection UNION attack, retrieving multiple values in a single column
+- Used CONCAT to combine username and password into a single column
 
-📸 Evidence
-See screenshots in the /screenshots folder.
+---
 
-✅ Result
-Successfully determined that the original query contains **3 columns**.
+## 🧠 Skills Demonstrated
+- SQL Injection (UNION-based)
+- Column enumeration
+- Data extraction
+- Data concatenation
+- Understanding database responses
 
-🔐 Mitigation
-Use parameterized queries (prepared statements)
-Validate and sanitize user inputs
-Avoid exposing database errors
+---
+
+## 📸 Evidence
+
+### Lab 01
+- 01-column-count.png
+- 02-column-count.png
+
+### Lab 02
+- 03-valid-text-column.png
+
+### Lab 03
+- 04-1-union-payload.png
+- 04-2-union-data.png
+- 04-3-union-users-table.png
+- 04-4-union-passwords.png
+- 04-5-admin-login.png
+
+### Lab 04
+- 05-1-union-payload.png
+- 05-2-union-data-extracted.png
+- 05-3-union-admin-login.png
