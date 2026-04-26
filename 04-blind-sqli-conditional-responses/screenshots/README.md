@@ -12,6 +12,7 @@ Identify the blind SQL injection vulnerability
 Determine the password length
 Extract the password character by character
 Log in as administrator
+
 ⚙️ Methodology
 Validate the injection using boolean conditions (TRUE / FALSE)
 Confirm the existence of the users table
@@ -20,8 +21,10 @@ Enumerate the password length
 Extract the password using SUBSTRING()
 Automate the process with Burp Suite Intruder
 Log in using the obtained credentials
+
 🛠️ Tools Used
 Burp Suite (Proxy, Repeater, Intruder)
+
 📂 Evidence
 
 The results and screenshots for this lab are located in the following folder:
